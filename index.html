@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Input | AI and the Future of Second Language Acquisition</title>
+    <meta name="description" content="Intelligent Input: Artificial Intelligence and the Future of Second Language Acquisition by Dr. Charles Martin, Ed.D. The first comprehensive academic monograph bridging SLA theory and AI. Coming Fall 2028.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #ffffff;
+            --bg-alt: #f5f5f7;
+            --bg-card: #ffffff;
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --text-tertiary: #86868b;
+            --accent: #0071e3;
+            --accent-hover: #0077ed;
+            --accent-subtle: rgba(0, 113, 227, 0.08);
+            --border: rgba(0, 0, 0, 0.08);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.04);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.06);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+            --gradient-hero: linear-gradient(180deg, #f5f5f7 0%, #ffffff 100%);
+            --chapter-num: #0071e3;
+            --serif: 'Playfair Display', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        [data-theme="dark"] {
+            --bg: #000000;
+            --bg-alt: #1d1d1f;
+            --bg-card: #1d1d1f;
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-tertiary: #6e6e73;
+            --accent: #2997ff;
+            --accent-hover: #40a9ff;
+            --accent-subtle: rgba(41, 151, 255, 0.1);
+            --border: rgba(255, 255, 255, 0.1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.2);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.3);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.4);
+            --gradient-hero: linear-gradient(180deg, #1d1d1f 0%, #000000 100%);
+            --chapter-num: #2997ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--sans);
+            background: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: var(--bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: background 0.3s ease;
+        }
+
+        [data-theme="dark"] nav {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-brand {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .theme-toggle:hover {
+            background: var(--accent-subtle);
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 160px 24px 100px;
+            text-align: center;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent-subtle) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(48px, 7vw, 80px);
+            font-weight: 600;
+            line-height: 1.05;
+            letter-spacing: -0.02em;
+            max-width: 900px;
+            margin: 0 auto 24px;
+            color: var(--text-primary);
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: 300;
+            color: var(--text-secondary);
+            max-width: 680px;
+            margin: 0 auto 16px;
+            line-height: 1.5;
+        }
+
+        .hero-author {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+        }
+
+        .hero-meta {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .hero-meta-item {
+            text-align: center;
+        }
+
+        .hero-meta-item .value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .hero-meta-item .label {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 4px;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 24px;
+        }
+
+        .section-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .section-desc {
+            font-size: 18px;
+            font-weight: 300;
+            color: var(--text-secondary);
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            background: var(--bg-alt);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 48px;
+        }
+
+        .about-text p {
+            font-size: 17px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .about-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .about-highlights {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .highlight-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow-sm);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .highlight-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .highlight-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* TOC */
+        .toc-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2px;
+            margin-top: 48px;
+        }
+
+        .toc-item {
+            display: grid;
+            grid-template-columns: 56px 1fr;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: baseline;
+            transition: background 0.2s;
+        }
+
+        .toc-item:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .toc-num {
+            font-family: var(--serif);
+            font-size: 32px;
+            font-weight: 400;
+            color: var(--chapter-num);
+            line-height: 1;
+            opacity: 0.7;
+        }
+
+        .toc-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            letter-spacing: -0.01em;
+        }
+
+        .toc-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            max-width: 700px;
+        }
+
+        /* Parts */
+        .toc-part {
+            margin-top: 48px;
+            margin-bottom: 8px;
+        }
+
+        .toc-part:first-child {
+            margin-top: 0;
+        }
+
+        .toc-part h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-tertiary);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* Author Section */
+        .author {
+            background: var(--bg-alt);
+        }
+
+        .author-card {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 40px;
+            align-items: start;
+            margin-top: 48px;
+        }
+
+        .author-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #5856d6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--serif);
+            font-size: 42px;
+            font-weight: 600;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .author-info h3 {
+            font-family: var(--serif);
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .author-info .credentials {
+            font-size: 14px;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .author-info p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .author-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .author-tag {
+            font-size: 12px;
+            font-weight: 500;
+            padding: 6px 14px;
+            border-radius: 100px;
+            background: var(--accent-subtle);
+            color: var(--accent);
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            background: var(--bg);
+            padding: 120px 24px;
+        }
+
+        .cta .section-title {
+            max-width: 600px;
+            margin: 0 auto 16px;
+        }
+
+        .cta-date {
+            font-size: 20px;
+            font-weight: 300;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 100px;
+            font-family: var(--sans);
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .cta-button:hover {
+            background: var(--accent-hover);
+            transform: scale(1.02);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 24px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-brand {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-tertiary);
+            margin-bottom: 8px;
+        }
+
+        .footer-brand a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer-copy {
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .author-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .author-avatar {
+                margin: 0 auto;
+            }
+
+            .author-tags {
+                justify-content: center;
+            }
+
+            .hero-meta {
+                gap: 24px;
+            }
+
+            .nav-links a.hide-mobile {
+                display: none;
+            }
+
+            .toc-item {
+                grid-template-columns: 44px 1fr;
+                gap: 12px;
+            }
+
+            .toc-num {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="#" class="nav-brand">Intelligent Input</a>
+        <div class="nav-links">
+            <a href="#about" class="hide-mobile">About</a>
+            <a href="#chapters" class="hide-mobile">Chapters</a>
+            <a href="#author" class="hide-mobile">Author</a>
+            <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+                <svg class="sun-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                <svg class="moon-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-label">Coming Fall 2028</div>
+    <h1><em>Intelligent Input</em></h1>
+    <p class="hero-subtitle">Artificial Intelligence and the Future of Second Language Acquisition</p>
+    <p class="hero-author">Dr. Charles Martin, Ed.D.</p>
+    <div class="hero-meta">
+        <div class="hero-meta-item">
+            <div class="value">15</div>
+            <div class="label">Chapters</div>
+        </div>
+        <div class="hero-meta-item">
+            <div class="value">144K</div>
+            <div class="label">Words</div>
+        </div>
+        <div class="hero-meta-item">
+            <div class="value">9</div>
+            <div class="label">SLA Theories</div>
+        </div>
+        <div class="hero-meta-item">
+            <div class="value">4</div>
+            <div class="label">Appendices</div>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <div class="section-inner">
+        <div class="section-label">About the Book</div>
+        <h2 class="section-title">The first comprehensive monograph bridging SLA theory and artificial intelligence.</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>No existing title bridges second language acquisition theory, AI and NLP technical literacy, and practitioner guidance in a single volume. Current books tend to be either edited collections with uneven quality, practitioner guides lacking theoretical depth, or computational linguistics texts inaccessible to language educators.</p>
+                <p><em>Intelligent Input</em> fills this gap by grounding every AI application in established SLA frameworks -- Krashen's Monitor Model, Long's Interaction Hypothesis, Swain's Output Hypothesis, Sociocultural Theory, Usage-Based Approaches, and Complex Dynamic Systems Theory -- while providing the technical literacy language researchers need to critically evaluate and design studies around AI-mediated learning.</p>
+                <p>Written with the benefit of three years of empirical evidence since the generative AI inflection point, this book is neither techno-utopian nor Luddite, applying a critical lens informed by equity, access, linguistic diversity, and the limits of current AI systems.</p>
+            </div>
+            <div class="about-highlights">
+                <div class="highlight-card">
+                    <h4>Single-Author Coherence</h4>
+                    <p>Unlike edited volumes, every chapter builds on a unified argument. One analytical voice across fifteen chapters, with consistent theoretical framing and cross-references.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>Dual Expertise</h4>
+                    <p>The author holds a doctorate in Educational Technology and active language learning credentials, combined with industry experience in AI-powered instructional design for federal and corporate clients.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>Full SLA Pipeline</h4>
+                    <p>Systematically covers input, interaction, output, feedback, pronunciation, vocabulary, grammar, assessment, identity, multilingualism, and research methodology.</p>
+                </div>
+                <div class="highlight-card">
+                    <h4>Theory Meets Practice</h4>
+                    <p>Every chapter includes practical applications, evaluation rubrics, and "Try This Monday" boxes for classroom practitioners alongside rigorous theoretical analysis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="chapters">
+    <div class="section-inner">
+        <div class="section-label">Table of Contents</div>
+        <h2 class="section-title">Fifteen chapters across the full SLA processing pipeline.</h2>
+        <p class="section-desc">From foundational theory through skills-based applications to broader implications for identity, multilingualism, and the future of the field.</p>
+
+        <div class="toc-grid">
+            <div class="toc-part"><h3>Part I -- Foundations</h3></div>
+
+            <div class="toc-item">
+                <div class="toc-num">01</div>
+                <div class="toc-content">
+                    <h3>The Convergence</h3>
+                    <p>Why AI and SLA need each other. Traces the parallel histories of CALL and AI/NLP, establishing the book's central argument that AI fundamentally challenges and extends core SLA constructs.</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">02</div>
+                <div class="toc-content">
+                    <h3>Foundations of SLA Theory for the AI Age</h3>
+                    <p>A rigorous review of major SLA theories -- Krashen, Long, Swain, VanPatten, Schmidt, Vygotsky, DeKeyser, Ellis, Larsen-Freeman -- each examined for compatibility with AI-mediated learning environments.</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">03</div>
+                <div class="toc-content">
+                    <h3>How AI "Understands" Language</h3>
+                    <p>NLP fundamentals for SLA researchers. Demystifies tokenization, embeddings, attention, and transformers at a conceptual level sufficient for critical evaluation and research design.</p>
+                </div>
+            </div>
+
+            <div class="toc-part"><h3>Part II -- The Processing Pipeline</h3></div>
+
+            <div class="toc-item">
+                <div class="toc-num">04</div>
+                <div class="toc-content">
+                    <h3>AI-Enhanced Input</h3>
+                    <p>How AI transforms the provision of linguistic input. Evaluates adaptive readers, AI-generated graded texts, and text simplification against Krashen's i+1 and VanPatten's Input Processing.</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">05</div>
+                <div class="toc-content">
+                    <h3>Interaction in the Age of AI</h3>
+                    <p>Can AI chatbots trigger negotiation of meaning? Examines whether AI-human conversation fulfills the interactional conditions identified by Long, Pica, Varonis, and Gass.</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">06</div>
+                <div class="toc-content">
+                    <h3>Output, Pushed Production, and the AI Feedback Loop</h3>
+                    <p>AI tools and learner output through the lens of Swain's Output Hypothesis and Skill Acquisition Theory. Addresses the paradox of AI making output easier while SLA values productive struggle.</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">07</div>
+                <div class="toc-content">
+                    <h3>Corrective Feedback</h3>
+                    <p>AI as the tireless interlocutor. Reviews the extensive CF literature and evaluates which feedback types -- recasts, prompts, explicit correction, metalinguistic explanation -- AI systems deliver effectively.</p>
+                </div>
+            </div>
+
+            <div class="toc-part"><h3>Part III -- Language Skills and Systems</h3></div>
+
+            <div class="toc-item">
+                <div class="toc-num">08</div>
+                <div class="toc-content">
+                    <h3>Pronunciation, Phonology, and AI Speech Systems</h3>
+                    <p>ASR-based pronunciation instruction through L2 phonology research. Addresses whose pronunciation norms AI systems encode and implications for World Englishes.</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">09</div>
+                <div class="toc-content">
+                    <h3>Vocabulary Acquisition and AI</h3>
+                    <p>From flashcards to contextual intelligence. Traces the evolution from spaced repetition to AI-powered adaptive vocabulary engines, evaluated against depth of processing and the Involvement Load Hypothesis.</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">10</div>
+                <div class="toc-content">
+                    <h3>Grammar Instruction, Focus on Form, and AI</h3>
+                    <p>How AI mediates grammar across the implicit/explicit continuum. Investigates whether AI can deliver reactive, meaning-contingent focus on form or defaults to discrete-point teaching.</p>
+                </div>
+            </div>
+
+            <div class="toc-part"><h3>Part IV -- Assessment, Society, and the Future</h3></div>
+
+            <div class="toc-item">
+                <div class="toc-num">11</div>
+                <div class="toc-content">
+                    <h3>AI-Powered Language Assessment and Adaptive Testing</h3>
+                    <p>Construct validity, reliability, washback, and fairness in AI scoring. From TOEFL iBT automated scoring to emergent LLM-based assessment of complex language performances.</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">12</div>
+                <div class="toc-content">
+                    <h3>Sociocultural Theory, Identity, and AI-Mediated Language Learning</h3>
+                    <p>Social, cultural, and identity dimensions. Does conversing with AI constitute legitimate social interaction? What happens to learner identity when the social risk of error is removed?</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">13</div>
+                <div class="toc-content">
+                    <h3>AI and Multilingualism</h3>
+                    <p>Beyond the monolingual bias. Challenges English-centric AI orientations, examines translanguaging, and evaluates machine translation as pedagogy rather than threat.</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">14</div>
+                <div class="toc-content">
+                    <h3>Research Methods for AI-SLA Studies</h3>
+                    <p>Methodological guidance for investigating AI in SLA contexts. Addresses AI variability, measuring gains under personalization, ethics, and the reproducibility problem with commercial AI systems.</p>
+                </div>
+            </div>
+            <div class="toc-item">
+                <div class="toc-num">15</div>
+                <div class="toc-content">
+                    <h3>The Road Ahead</h3>
+                    <p>Agentic AI, embodied interaction in AR/VR, multimodal systems, and brain-computer interfaces -- examined through SLA theoretical lenses. Proposes a research agenda for the next decade.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="author" id="author">
+    <div class="section-inner">
+        <div class="section-label">About the Author</div>
+        <h2 class="section-title">Practitioner, scholar, and active language learner.</h2>
+        <div class="author-card">
+            <div class="author-avatar">CM</div>
+            <div class="author-info">
+                <h3>Dr. Charles Martin</h3>
+                <div class="credentials">Ed.D. Educational Technology, University of Florida</div>
+                <p>Dr. Charles Martin holds an Ed.D. in Educational Technology from the University of Florida and an Associate of Arts in Spanish/Bilingual Studies from Foothill College. He is currently completing a Bachelor of Arts in Spanish at Eastern New Mexico University, bringing the dual lens of active language learner and established scholar to every chapter.</p>
+                <p>His career spans K-12 language teaching -- including English and Spanish instruction in Abu Dhabi, UAE -- instructional design for federal agencies and defense contractors, AI-powered eLearning development, and educational technology leadership at organizations including Age of Learning, Microsoft, UCLA Health, and Eccalon (a Department of Defense contractor).</p>
+                <p>Dr. Martin has designed AI-integrated learning experiences for audiences ranging from kindergarten students to military personnel and corporate professionals. His position at the intersection of language acquisition practice, educational technology research, and AI systems development informs every chapter of this work.</p>
+                <div class="author-tags">
+                    <span class="author-tag">SLA Theory</span>
+                    <span class="author-tag">Educational Technology</span>
+                    <span class="author-tag">AI/NLP</span>
+                    <span class="author-tag">Instructional Design</span>
+                    <span class="author-tag">K-12 Education</span>
+                    <span class="author-tag">Federal eLearning</span>
+                    <span class="author-tag">Spanish/Bilingual</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <h2 class="section-title">The definitive text on AI and language acquisition is coming.</h2>
+    <p class="cta-date">Estimated publication: Fall 2028</p>
+    <a href="mailto:charlesmartinedd@gmail.com" class="cta-button">
+        Contact the Author
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+</section>
+
+<footer>
+    <div class="footer-brand">Published by <a href="https://alexandria-s-design.github.io/portfolio/" target="_blank">Alexandria's Design</a></div>
+    <div class="footer-copy">&copy; 2026 Dr. Charles Martin, Ed.D. All rights reserved.</div>
+</footer>
+
+<script>
+    function toggleTheme() {
+        const html = document.documentElement;
+        const isDark = html.getAttribute('data-theme') === 'dark';
+        html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+        localStorage.setItem('theme', isDark ? 'light' : 'dark');
+        updateIcons(!isDark);
+    }
+
+    function updateIcons(isDark) {
+        document.querySelector('.sun-icon').style.display = isDark ? 'none' : 'block';
+        document.querySelector('.moon-icon').style.display = isDark ? 'block' : 'none';
+    }
+
+    // Init theme
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+    updateIcons(theme === 'dark');
+</script>
+
+</body>
+</html>
